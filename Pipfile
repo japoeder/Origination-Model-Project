@@ -11,6 +11,7 @@ seaborn = "*"
 matplotlib = "*"
 lightgbm = "*"
 imblearn = "*"
+scikit-learn = "*"
 
 [dev-packages]
 
