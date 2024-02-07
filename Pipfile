@@ -12,6 +12,7 @@ matplotlib = "*"
 lightgbm = "*"
 imblearn = "*"
 scikit-learn = "*"
+ydata-profiling ="*"
 
 [dev-packages]
 
