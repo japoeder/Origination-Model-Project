@@ -3,6 +3,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[[source]]
+url = "https://pypi.nvidia.com"
+verify_ssl = true
+name = "nvidia"
+
 [packages]
 jupyter = "*"
 smote = "*"
@@ -13,6 +18,11 @@ lightgbm = "*"
 imblearn = "*"
 scikit-learn = "*"
 ydata-profiling ="*"
+jupyterlab = "*"
+summarytools = "*"
+pyarrow = "*"
+plotly-express = "*"
+pre-commit = "*"
 
 [dev-packages]
 
