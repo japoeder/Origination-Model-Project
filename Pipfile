@@ -3,29 +3,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[[source]]
-url = "https://pypi.nvidia.com"
-verify_ssl = true
-name = "nvidia"
-
 [packages]
-jupyter = "*"
-smote = "*"
-pandas = "*"
-seaborn = "*"
-matplotlib = "*"
-lightgbm = "*"
-imblearn = "*"
-scikit-learn = "*"
-ydata-profiling ="*"
-jupyterlab = "*"
-summarytools = "*"
-pyarrow = "*"
-plotly-express = "*"
-pre-commit = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.10"
-python_full_version = "3.10.13"
