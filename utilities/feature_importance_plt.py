@@ -1,7 +1,7 @@
 import seaborn as sns
 from matplotlib import pyplot as plt
 
-def gradboost_feature_importance(feature_importance, model):
+def feature_importance_plt(feature_importance, model):
 
     if model == 'lightgbm':
         cols = feature_importance[["feature", "importance"]].groupby("feature").mean().sort_values(by="importance", ascending=False)[:40].index
