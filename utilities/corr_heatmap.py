@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 import numpy as np
 
-def heatmap(data='in_df', num_cols='cols'):
+def corr_heatmap(data='in_df', num_cols='cols'):
     corr = data[num_cols].corr()
     fig = plt.figure(figsize=(12,12))
     ax = fig.add_subplot(111)
