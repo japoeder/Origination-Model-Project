@@ -13,29 +13,35 @@ def prob_to_label(preds, threshold=0.5):
 
 
 ##  Function to calculate different metric scores of the model - Accuracy, Recall and Precision
-def get_metrics_score(preds, sample_dict, print_flag=False):
+def get_metrics_score(preds, sample_dict, print_flag=False, validation=False):
     """
     model : classifier to predict values of X
 
     """
+
     # defining an empty list to store train and test results
     score_list = []
     pred_train = preds["pred_train"]
-    pred_test = preds["pred_test"]
+    if validation is True:
+        pred_test = preds["pred_val"]
+        sample_test = sample_dict["y_val"]
+    else:
+        pred_test = preds["pred_test"]
+        sample_test = sample_dict["y_test"]
     # round the pred_time to 4 decimal places
     est_time = round(preds["est_time"], 4)
 
     train_acc = accuracy_score(sample_dict["y_train"], pred_train)
-    test_acc = accuracy_score(sample_dict["y_test"], pred_test)
+    test_acc = accuracy_score(sample_test, pred_test)
 
     train_recall = recall_score(sample_dict["y_train"], pred_train)
-    test_recall = recall_score(sample_dict["y_test"], pred_test)
+    test_recall = recall_score(sample_test, pred_test)
 
     train_precision = precision_score(sample_dict["y_train"], pred_train)
-    test_precision = precision_score(sample_dict["y_test"], pred_test)
+    test_precision = precision_score(sample_test, pred_test)
 
     train_f1 = f1_score(sample_dict["y_train"], pred_train)
-    test_f1 = f1_score(sample_dict["y_test"], pred_test)
+    test_f1 = f1_score(sample_test, pred_test)
 
     score_list.extend(
         (
@@ -89,7 +95,7 @@ def get_metrics_score(preds, sample_dict, print_flag=False):
     return score_list  # returning the list with train and test scores
 
 
-def model_comparisons(models_dict, sample_dict):
+def model_comparisons(models_dict, sample_dict, validation=False):
     # defining list of models
     models = [v for v in models_dict.values()]
     labels = [k for k in models_dict.keys()]
@@ -106,8 +112,11 @@ def model_comparisons(models_dict, sample_dict):
     f1_test = []
 
     # looping through all the models to get the metrics score - Accuracy, Recall and Precision
-    for preds in models:
-        j = get_metrics_score(preds, sample_dict, print_flag=False)
+    for l in labels:
+        if validation is True:
+            j = get_metrics_score(models_dict[l], sample_dict, print_flag=False, validation=models_dict[l]["validation"])
+        else:
+            j = get_metrics_score(models_dict[l], sample_dict, print_flag=False, validation=models_dict[l]["validation"])
         acc_train.append(j[0])
         acc_test.append(j[1])
         recall_train.append(j[2])
