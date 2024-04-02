@@ -5,7 +5,7 @@ Data Source: [Lending Club ](https://www.kaggle.com/datasets/adarshsng/lending-c
 Summary: Consists the observations of all the loans issued from 2007 to 2015
 
 Model Accuracy:
-1) scikit-learn LogReg: 80.23%
-2) PyTorch LogReg: 80.15%
-3) Random Forest: 79.44%
-4) XGBoost Tuned: 59.58%
+1) scikit-learn LogReg: 80.21%
+2) PyTorch LogReg: 80.10%
+3) Random Forest: 79.50%
+4) XGBoost Tuned: 59.40%
